@@ -23,7 +23,9 @@ const List = observer(() => {
                         return (
                             <tr key={item.id}>        
                                 <td title="Click for detales">
-                                    <Link to={`/detales/id:${item.id}`}>{item.id}</Link>
+                                    <Link to={`/detales/id:${item.id}`} state={{data: item}}>
+                                            {item.id}
+                                    </Link>
                                 </td>
                                 <td>
                                     {item.priceUsd}

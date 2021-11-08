@@ -1,12 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import { toJS } from 'mobx';
-import coinStore from '../store/coinStore';
 
-const Detales = observer((props) => {
-    const history = useLocation();
-    const id = history.pathname.split(':')[1];
-    const currentCoin = toJS(coinStore.coins).find(el => el.id === id);    
+const Detales = observer(() => {
+    const history = useLocation();   
+    const currentCoin = history.state.data;
     return (
         <div className="container">
             <h2>Detales</h2>
